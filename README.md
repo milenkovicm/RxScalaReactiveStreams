@@ -1,4 +1,4 @@
-# RxScala wrapper for RxJavaReactiveStreams
+# RxScala wrapper for RxJavaReactiveStreams ![travis-ci](https://travis-ci.org/milenkovicm/RxScalaReactiveStreams.svg)
 
 
 Library provides three implicit methods for conversion between [RxScala](https://github.com/ReactiveX/RxScala) 
