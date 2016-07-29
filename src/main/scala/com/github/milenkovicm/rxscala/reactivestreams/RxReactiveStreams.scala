@@ -19,13 +19,13 @@ package com.github.milenkovicm.rxscala.reactivestreams
 import org.reactivestreams.Publisher
 import rx.RxReactiveStreams._
 import rx.lang.scala.JavaConversions._
-import rx.lang.scala.{Observable, Subscriber}
+import rx.lang.scala.{JavaConversions, Observable, Subscriber}
 
 import scala.language.implicitConversions
 
 object RxReactiveStreams {
 
   implicit def asObservable[T](p: Publisher[T]): Observable[T] = toObservable(p)
-  implicit def asPublisher[T](o: Observable[T]): Publisher[_ <: T] = toPublisher(o)
+  implicit def asPublisher[T](o: Observable[T]): Publisher[_ <: T] = toPublisher(JavaConversions.toJavaObservable(o))
   implicit def asSubscriber[T](s: Subscriber[T]): org.reactivestreams.Subscriber[_ >: T] = toSubscriber(s)
 }
